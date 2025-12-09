@@ -132,6 +132,11 @@ $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                         <!-- Copyright -->
                         <ul class="copyright">
+<li>
+<a href="https://github.com/nodem5/Clicker_full/archive/refs/heads/main.zip" download>
+  <button>Pobierz projekt ZIP</button>
+</a>
+</li>
                             <li>&copy; Clicker Hub. Wszelkie prawa zastrzeżone.</li>
                             <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
                             <li>Twórca: Nodem5</li>
