@@ -1,0 +1,298 @@
+/* ---------- PODSTAWOWE ---------- */
+body {
+  font-family: Arial, sans-serif;
+  margin-top: 80px;
+  text-align: center;
+}
+
+/* Przyciski ogólnie */
+button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover { background: #1565c0; }
+
+/* Reset i toggle */
+#resetBtn {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 100;
+  background: #e53935;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: #fff;
+}
+#darkModeBtn {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  z-index: 101;
+  padding: 8px 18px;
+  border-radius: 6px;
+  background: #393e46;
+  color: #e3eafc;
+}
+
+/* Layout */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100%;
+  background: #e3eafc;
+  padding: 32px 16px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.08);
+  text-align: left;
+  z-index: 10;
+}
+main { position: relative; z-index: 2; }
+
+/* Tła specyficzne dla gry (pseudo background) */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: var(--bg-image, url('stragan1.png')) no-repeat center/cover;  
+    opacity: .25;
+    z-index: 1;
+}
+
+/* -- highlight dla dostępnych ulepszeń */
+.highlight {
+  box-shadow: 0 0 12px 2px #00adb5;
+  border: 2px solid #00adb5;
+  background: #e3eafc;
+  color: #1976d2;
+}
+
+/* ---------- TRYB JASNY (domyślny) ---------- */
+.light-mode {
+  background: #f5f7fa;
+  color: #222;
+}
+.light-mode .sidebar { background: #e3eafc; color: #222; }
+.light-mode #clickBtn { background: #43a047; }
+.light-mode #dollarsPerSec { color: #1976d2; }
+
+/* ---------- TRYB CIEMNY ---------- */
+.dark-mode {
+  background: #222831;
+  color: #eafcff;
+}
+.dark-mode button { background: #393e46; color: #eafcff; }
+.dark-mode button:hover { background: #222831; }
+.dark-mode #resetBtn { background: #b71c1c; }
+.dark-mode .sidebar { background: #393e46; color: #eafcff; }
+.dark-mode #clickBtn { background: #2e7d32; }
+
+/* ---------- prefers-color-scheme: dark (dodatkowo) ---------- */
+@media (prefers-color-scheme: dark) {
+  body { background: #222831; color: #e3eafc; }
+}
+
+/* Inne style pomocnicze (inwestycje, progress) */
+#investmentsPanel { position: fixed; right: 32px; bottom: 32px; width: 340px; z-index:100; border-radius:16px; padding:28px; box-shadow:0 8px 32px rgba(0,0,0,0.18); background:#fff; color:#222; display:none; }
+.investment { margin-bottom:18px; padding:12px; border-radius:8px; background:#e3eafc; }
+.progress-bar { width:100%; height:14px; background:#e0e0e0; border-radius:7px; overflow:hidden; }
+.progress { height:100%; background:#43a047; width:0%; transition: width 0.2s; }
+
+/* ============================================
+   PRZYWRÓCENIE ORYGINALNEGO WYGLĄDU PRZYCISKÓW
+   ============================================ */
+
+/* GŁÓWNY PRZYCISK KLIKANIA */
+#clickBtn {
+  font-size: 1.4rem;
+  padding: 16px 40px;
+  border-radius: 12px;
+  background: #43a047 !important;
+  color: #fff !important;
+  border: none;
+  box-shadow: 0 4px 16px rgba(67,160,71,0.15) !important;
+  cursor: pointer;
+  margin: 24px 0 16px 0;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+#clickBtn:hover {
+  background: #388e3c !important;
+  box-shadow: 0 6px 20px rgba(67,160,71,0.22) !important;
+}
+
+/* UNIWERSALNE PRZYCISKI ULEPSZEŃ */
+#upgradeSort,
+#upgradeFruits,
+#upgradeAd,
+#upgradeWorker,
+#upgradeInvest,
+#vehicleRental,
+#upgradeSecurity,
+#upgradeCars {
+  font-size: 1.2rem;
+  padding: 10px 30px;
+  border-radius: 8px;
+  border: none;
+  background: #1976d2 !important;
+  color: #fff !important;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10) !important;
+  transition: background 0.2s;
+  margin-top: 12px;
+}
+#upgradeSort:hover,
+#upgradeFruits:hover,
+#upgradeAd:hover,
+#upgradeWorker:hover,
+#upgradeInvest:hover,
+#vehicleRental:hover,
+#upgradeSecurity:hover,
+#upgradeCars:hover {
+  background: #1565c0 !important;
+}
+
+/* PRZYCISK RESETU */
+#resetBtn {
+  background: #e53935 !important;
+  color: #fff !important;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+#resetBtn:hover {
+  background: #b71c1c !important;
+}
+
+/* PRZYCISK DARK MODE */
+#darkModeBtn {
+  background: #393e46 !important;
+  color: #e3eafc !important;
+}
+#darkModeBtn:hover {
+  background: #222831 !important;
+}
+
+/* ===========================
+   PANEL INWESTYCJI — poprawiony
+   =========================== */
+
+#investmentsPanel {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    width: 340px;
+    padding: 28px 22px;
+    border-radius: 16px;
+    backdrop-filter: blur(12px); /* rozmycie */
+    background: rgba(255, 255, 255, 0.40); /* jasne półprzezroczyste */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    z-index: 100;
+}
+
+/* Dark mode wersja panelu */
+.dark-mode #investmentsPanel {
+    background: rgba(34, 40, 49, 0.65) !important;
+    color: #eafcff !important;
+}
+
+/* ELEMENT INWESTYCJI */
+.investment {
+    background: rgba(255, 255, 255, 0.40);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* DARK */
+.dark-mode .investment {
+    background: rgba(34, 40, 49, 0.55) !important;
+    border: 1px solid #00adb5;
+}
+
+/* Przyciski w panelu inwestycji */
+.investment-btn {
+    background: #1976d2 !important;
+    color: #fff !important;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.investment-btn:hover {
+    background: #1565c0 !important;
+}
+
+.dark-mode .investment-btn {
+    background: #1a237e !important;
+}
+.dark-mode .investment-btn:hover {
+    background: #0d47a1 !important;
+}
+
+/* Sidebar półprzezroczysty */
+.sidebar {
+  background: rgba(227, 234, 252, 0.50) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Dark mode sidebar */
+.dark-mode .sidebar {
+  background: rgba(34, 40, 49, 0.55) !important;
+}
+
+.highlight {
+  box-shadow: 0 0 18px 4px #00e0ff !important;
+  border: 3px solid #00e0ff !important;
+  background: rgba(0, 224, 255, 0.12) !important;
+  color: #1976d2 !important;
+  transform: scale(1.03);
+  transition: 0.15s;
+}
+
+.dark-mode .highlight {
+  background: rgba(0, 224, 255, 0.25) !important;
+  color: #00e0ff !important;
+}
+
+/* Mobilne wyświetlanie gry */
+@media (max-width: 768px) {
+  body {
+    margin-top: 40px;
+  }
+
+  .sidebar {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .sidebar h3 {
+    display: none;
+  }
+
+  .sidebar button {
+    width: 48%;
+    margin: 4px 1%;
+    font-size: 1rem !important;
+    padding: 8px !important;
+  }
+
+  #investmentsPanel {
+    bottom: 10px;
+    right: 10px;
+    width: calc(100% - 20px);
+  }
+
+  #clickBtn {
+    width: 90%;
+    font-size: 1.3rem;
+  }
+}

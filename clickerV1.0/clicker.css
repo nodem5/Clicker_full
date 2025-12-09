@@ -1,0 +1,262 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+body.dark-mode {
+    background: #0d0d0d; /* Ciemniejsze tło */
+    color: #e0e0e0; /* Jaśniejszy tekst */
+}
+
+.container {
+    margin-top: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    flex: 1;
+}
+
+body.dark-mode .container {
+    background: rgba(30, 30, 30, 0.95); /* Ciemniejsze tło kontenera */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.container h2 {
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 15px 25px;
+    margin: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    transition: transform 0.2s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode button {
+    background: linear-gradient(135deg, #333, #222); /* Ciemniejsze przyciski */
+    color: #fff; /* Jaśniejszy tekst */
+}
+
+button:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: scale(1.1);
+}
+
+body.dark-mode button:hover {
+    background: linear-gradient(135deg, #444, #333); /* Zmiana koloru przycisku po najechaniu */
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+h1 {
+    color: #222;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 20px;
+    color: #555;
+}
+
+#score, #auto-score {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.collector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 80%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress {
+    height: 80%;
+    width: 0%;
+    background-color: #007bff;
+    transition: width 0.1s linear;
+}
+
+body.dark-mode .progress {
+    background-color: #555; /* Ciemniejszy pasek postępu */
+}
+
+.automation-sidebar,
+.special-upgrades {
+    position: fixed;
+    top: 100px;
+    bottom: 20px; /* Dodaj odstęp od dołu, aby uniknąć zasłaniania przez stopkę */
+    overflow-y: auto; /* Dodaj przewijanie, jeśli zawartość przekracza wysokość */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    text-align: center;
+}
+
+body.dark-mode .automation-sidebar,
+body.dark-mode .special-upgrades {
+    background: rgba(20, 20, 20, 0.95); /* Ciemniejsze tło paneli bocznych */
+    color: #e0e0e0; /* Jaśniejszy tekst */
+    border: 1px solid #444; /* Dodanie obramowania dla lepszej widoczności */
+}
+
+.automation-sidebar {
+    right: 20px; /* Pozycja po prawej stronie */
+}
+
+.special-upgrades {
+    left: 20px; /* Pozycja po lewej stronie */
+}
+
+.automation-sidebar h3,
+.special-upgrades h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.automation-sidebar button,
+.special-upgrades button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.automation-sidebar button:hover,
+.special-upgrades button:hover {
+    background: linear-gradient(135deg, #218838, #1e7e34);
+}
+
+.automation-sidebar button:disabled,
+.special-upgrades button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.collector-info {
+    font-size: 16px;
+    margin-top: 5px;
+    color: #555;
+    text-align: center;
+}
+
+.collector-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+}
+
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode p {
+    color: #f0f0f0; /* Jaśniejszy tekst dla nagłówków i paragrafów */
+}
+
+.footer {
+    background: rgba(255, 255, 255, 0.9); /* Jasne tło dla trybu jasnego */
+    color: #000; /* Ciemny tekst */
+    padding: 10px; /* Zmniejszone wypełnienie */
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative; /* Change from sticky to relative */
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    height: auto; /* Allow dynamic height adjustment */
+    max-height: 15%; /* Set a reasonable maximum height */
+    overflow-y: auto; /* Enable scrolling for overflow content */
+    margin-top: 20px; /* Add spacing from the main content */
+    transition: max-height 0.3s ease; /* Smooth transition for height changes */
+}
+
+body.dark-mode .footer {
+    background: rgba(0, 0, 0, 0.75); /* Ciemne, półprzezroczyste tło dla trybu ciemnego */
+    color: #ffffff; /* Jasny tekst dla lepszej widoczności */
+    border-top: 2px solid rgba(255, 255, 255, 0.2); /* Subtelna linia oddzielająca */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Subtelny cień */
+}
+
+.footer:hover {
+    max-height: 25%; /* Slightly increase height on hover */
+    overflow-y: auto; /* Ensure scrolling for expanded content */
+}
+
+.footer h2 {
+    font-size: 20px; /* Zmniejszony rozmiar nagłówka */
+    margin-bottom: 10px;
+}
+
+.footer p {
+    font-size: 14px; /* Zmniejszony rozmiar tekstu */
+    margin: 0;
+}
+
+.footer-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-top: 2px solid #ccc;
+    text-align: center;
+    position: sticky; /* Przyklej blok do dołu strony */
+    bottom: 0;
+    width: 100%;
+    z-index: 10; /* Upewnij się, że blok nie jest zasłaniany */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+body.dark-mode .footer-container {
+    background: rgba(20, 20, 20, 0.95); /* Ciemniejsze tło w trybie ciemnym */
+    color: #e0e0e0;
+    border-top: 2px solid #444;
+}

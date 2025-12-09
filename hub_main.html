@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<!--
+    Strona "Clicker Hub" - Hub dla wersji Clickera V1 i V2
+    Struktura strony:
+    - Nagłówek z logo i nawigacją
+    - Główna sekcja z opisem i linkami do wersji Clickera
+    - Sidebar z dodatkowymi informacjami lub linkami
+    - Stopka z informacjami o autorze i prawach autorskich
+-->
+<html>
+<head>
+    <title>Clicker Hub</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        .clicker-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .clicker-item {
+            text-align: center;
+            width: 45%;
+        }
+        .clicker-item img {
+            max-width: 80%;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .clicker-item p {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body class="left-sidebar is-preload">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <section id="header">
+
+            <!-- Logo -->
+            <h1><a href="#">Clicker Hub</a></h1>
+            <img src="images/logo.png" alt="Logo" style="max-width: 100px; display: block; margin: 0 auto;">
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="opis.html">Opis projektu</a></li>
+					<li><a href="hub_main.html">Home</a></li>
+					<li><a href="hub_komentarze.php">Komentarze</a></li>
+                </ul>
+            </nav>
+
+        </section>
+
+        <!-- Main -->
+        <section id="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 col-12-medium">
+
+                        <!-- Sidebar -->
+                        <section class="box">
+                            <header>
+                                <h3>Informacje</h3>
+                            </header>
+                            <p>
+                                Clicker Hub został stworzony, aby ułatwić dostęp do różnych wersji gry Clicker. Wybierz wersję, która najbardziej Ci odpowiada!
+                            </p>
+                        </section>
+
+                    </div>
+                    <div class="col-8 col-12-medium imp-medium">
+
+                        <!-- Content -->
+                        <article class="box post">
+                            <header>
+                                <h2>Witamy w Clicker Hub</h2>
+                                <p>Wybierz wersję gry, aby rozpocząć zabawę!</p>
+                            </header>
+                            <p>
+                                Clicker Hub to centralne miejsce, w którym możesz wybrać jedną z dwóch wersji gry Clicker. Każda wersja oferuje unikalne funkcje i mechaniki gry.
+                            </p>
+                            <div class="clicker-section">
+                                <div class="clicker-item">
+                                    <a href="clickerV1.0/clicker.html" target="_blank">
+                                        <img src="images/clicker-v1.png" alt="Clicker V1">
+                                    </a>
+                                    <p>Clicker V1 - Klasyczna wersja gry z podstawowymi funkcjami.</p>
+                                </div>
+                                <div class="clicker-item">
+                                    <a href="clicker v2.0/clicker.html" target="_blank">
+                                        <img src="images/clicker-v2.png" alt="Clicker V2">
+                                    </a>
+                                    <p>Clicker V2 - Ulepszona wersja z nowymi funkcjami i ulepszeniami.</p>
+                                </div>
+                            </div>
+                            <p style="text-align: center; margin-top: 20px;">
+                                <a href="https://github.com" target="_blank">GitHub Repozytorium</a>
+                            </p>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+
+                        <!-- Copyright -->
+                        <ul class="copyright">
+                            <li>&copy; Clicker Hub. Wszelkie prawa zastrzeżone.</li>
+                            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                            <li>Twórca: Nodem5</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

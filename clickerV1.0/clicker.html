@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game v1.0</title>
+    <link rel="stylesheet" href="clicker.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-content">
+        <div class="container">
+            <h1>Gra Clicker</h1>
+            <p>Punkty: <span id="score">0</span></p>
+            <button id="clicker">Kliknij mnie!</button>
+            <p>Ulepszenia:</p>
+            <button id="click-upgrade" onclick="buyClickUpgrade()">Zwiększ wartość kliknięcia (koszt: <span id="click-upgrade-cost">20</span>)</button>
+            <button id="double-click-upgrade" onclick="buyDoubleClickUpgrade()">Podwój wartość kliknięcia (koszt: <span id="double-click-upgrade-cost">50</span>)</button>
+            <p>Automatyczne punkty: <span id="auto-score">0</span> na sekundę</p>
+            <button id="reset" onclick="resetGame()">Resetuj grę</button>
+            <button id="dark-mode-toggle" onclick="toggleDarkMode()">Tryb Ciemny</button>
+            <select id="language-select" onchange="setLanguage(this.value)">
+                <option value="pl">Polski</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+
+        <div class="automation-sidebar">
+            <h3>Automatyzacja</h3>
+            <button id="auto-collector1" onclick="startAutoCollector(1)" disabled>Automatyzuj zbieracz 1 (koszt: 100)</button>
+            <button id="auto-collector2" onclick="startAutoCollector(2)" disabled>Automatyzuj zbieracz 2 (koszt: 200)</button>
+            <button id="auto-collector3" onclick="startAutoCollector(3)" disabled>Automatyzuj zbieracz 3 (koszt: 500)</button>
+            <button id="auto-collector4" onclick="startAutoCollector(4)" disabled>Automatyzuj zbieracz 4 (koszt: 1000)</button>
+        </div>
+
+        <div class="special-upgrades">
+            <h3>Specjalne Ulepszenia</h3>
+            <button onclick="buySpecialUpgrade(1)">Podwój punkty (koszt: 1000)</button>
+            <button onclick="buySpecialUpgrade(2)">Skróć czas (koszt: 2000)</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <h2>Zbieracze</h2>
+        <div class="collector">
+            <img src="bitcoin.png" alt="Bitcoin" class="collector-icon">
+            <button id="unlock-collector1" onclick="unlockCollector(1)">Odblokuj zbieracz 1 (koszt: 50)</button>
+            <button id="collector1" onclick="collectPoints(1)" disabled>Zbierz punkty</button>
+            <button id="upgrade-collector1" onclick="upgradeCollector(1)" disabled>Ulepsz zbieracz 1 (koszt: 100)</button>
+            <div class="progress-bar">
+                <div id="progress-collector1" class="progress"></div>
+            </div>
+            <p id="collector1-info">Punkty: 10 | Czas: 5s</p>
+        </div>
+        <div class="collector">
+            <img src="ethereum.png" alt="Ethereum" class="collector-icon">
+            <button id="unlock-collector2" onclick="unlockCollector(2)">Odblokuj zbieracz 2 (koszt: 100)</button>
+            <button id="collector2" onclick="collectPoints(2)" disabled>Zbierz punkty</button>
+            <button id="upgrade-collector2" onclick="upgradeCollector(2)" disabled>Ulepsz zbieracz 2 (koszt: 200)</button>
+            <div class="progress-bar">
+                <div id="progress-collector2" class="progress"></div>
+            </div>
+            <p id="collector2-info">Punkty: 20 | Czas: 10s</p>
+        </div>
+        <div class="collector">
+            <img src="litecoin.png" alt="Litecoin" class="collector-icon">
+            <button id="unlock-collector3" onclick="unlockCollector(3)">Odblokuj zbieracz 3 (koszt: 300)</button>
+            <button id="collector3" onclick="collectPoints(3)" disabled>Zbierz punkty</button>
+            <button id="upgrade-collector3" onclick="upgradeCollector(3)" disabled>Ulepsz zbieracz 3 (koszt: 500)</button>
+            <div class="progress-bar">
+                <div id="progress-collector3" class="progress"></div>
+            </div>
+            <p id="collector3-info">Punkty: 50 | Czas: 30s</p>
+        </div>
+        <div class="collector">
+            <img src="dogecoin.png" alt="Dogecoin" class="collector-icon">
+            <button id="unlock-collector4" onclick="unlockCollector(4)">Odblokuj zbieracz 4 (koszt: 500)</button>
+            <button id="collector4" onclick="collectPoints(4)" disabled>Zbierz punkty</button>
+            <button id="upgrade-collector4" onclick="upgradeCollector(4)" disabled>Ulepsz zbieracz 4 (koszt: 1000)</button>
+            <div class="progress-bar">
+                <div id="progress-collector4" class="progress"></div>
+            </div>
+            <p id="collector4-info">Punkty: 100 | Czas: 60s</p>
+        </div>
+    </footer>
+
+    <script src="clicker.js"></script>
+</body>
+</html>
